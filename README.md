@@ -81,25 +81,3 @@
 
 系統可串接 DeepSeek API，根據主要標的策略績效、跨標的比較結果與參數搜尋摘要，自動整理策略優缺點、風險特徵與改善方向。若未設定 API key，系統仍會提供基本的離線摘要。
 
-## 執行方式
-
-```bash
-pip install -r requirements.txt
-streamlit run main.py
-```
-
-Streamlit Cloud 部署時，主程式請設定為：
-
-```text
-main.py
-```
-
-若要啟用 DeepSeek 分析，在 Streamlit Cloud Secrets 加入：
-
-```toml
-DEEPSEEK_API_KEY = "自己的 DeepSeek API key"
-```
-
-## 注意事項
-
-本系統為課程作業與歷史資料分析用途。回測結果不代表未來績效，實際交易仍須考慮交易成本、滑價、流動性與市場風險。
