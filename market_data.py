@@ -2,8 +2,9 @@ import pandas as pd
 
 
 def read_kbar_file(path: str) -> pd.DataFrame:
-    data = pd.read_csv(path, compression="infer")
+    data = pd.read_csv(path, compression="infer", dtype={"product": str})
     data["time"] = pd.to_datetime(data["time"])
+    data["product"] = data["product"].str.zfill(4)
     data = data.sort_values("time").drop_duplicates("time").reset_index(drop=True)
     for col in ["open", "high", "low", "close", "volume", "amount"]:
         data[col] = pd.to_numeric(data[col], errors="coerce")
